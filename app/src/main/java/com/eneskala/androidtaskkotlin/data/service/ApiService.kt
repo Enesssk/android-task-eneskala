@@ -11,11 +11,10 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-
-    @POST("index.php/login")
+    @POST("/index.php/login")
     suspend fun login(@Body login: LoginRequest): Response<LoginResponse>
 
-    @GET("dev/index.php/v1/tasks/select")
+    @GET("/dev/index.php/v1/tasks/select")
     suspend fun getTasks(): Response<List<Task>>
 
 }

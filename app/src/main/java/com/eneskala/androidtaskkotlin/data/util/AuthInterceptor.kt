@@ -17,6 +17,8 @@ class AuthInterceptor @Inject constructor(
         val original = chain.request()
         val builder = original.newBuilder()
 
+        logCurlCommand(chain.request())
+
         // 1) I added auth header for each login
         if (original.url.encodedPath.endsWith("/index.php/login")) {
             builder
