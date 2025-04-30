@@ -1,3 +1,34 @@
+
+
+
+https://github.com/user-attachments/assets/89b2ae5f-ccc4-4aab-b704-febb9b9e72d0
+
+#Done
+
+✅ The specified data is displayed as a list on the main screen.
+
+✅ Data was stored to work offline.
+
+✅ Searching with SearchView is enabled.
+
+✅ QR code search enabled.
+
+✅ Swipe-to-refresh added.
+
+✅ It will automatically update the data every 60 minutes.
+
+✅ Additionally, a detail page was added to show other data.
+
+
+
+
+<br><br><br>
+
+
+
+
+
+
 Hello dear Android dev prospect!
 
 This repository is supposed to act as a playground for your submission.
