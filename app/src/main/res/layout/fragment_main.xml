@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.MainFragment">
 
     <TextView
@@ -12,13 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/work_sans_semibold"
         android:text="@string/titleText"
         android:textColor="@color/black"
-        android:textSize="22sp"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
+        android:textSize="24sp"
         android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,17 +64,21 @@
         android:layout_margin="8dp"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="16dp"
-        android:background="@drawable/maincardconstraint_background"
+        android:iconifiedByDefault="true"
+        binding.searchView.isIconified = "true"
+        android:background="@null"
         android:queryHint="@string/searchbar_scrolling_view_behavior"
+        android:theme="@style/SearchViewTextBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleText" />
 
     <ImageButton
         android:id="@+id/btnScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="24dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Scan"
         android:src="@drawable/baseline_qr_code_scanner_24"
