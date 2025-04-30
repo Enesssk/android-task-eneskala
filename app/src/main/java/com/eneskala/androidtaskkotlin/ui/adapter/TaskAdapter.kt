@@ -11,7 +11,9 @@ import com.eneskala.androidtaskkotlin.R
 import com.eneskala.androidtaskkotlin.data.model.Task
 import com.eneskala.androidtaskkotlin.databinding.MaincardItemBinding
 
-class TaskAdapter (private val taskList: List<Task>): RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
+class TaskAdapter (private val taskList: List<Task>,
+    private val onItemClick: (Task) -> Unit, // to click on each item.
+    ): RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
     inner class TaskHolder(val binding: MaincardItemBinding) : ViewHolder(binding.root){
     }
 
@@ -48,5 +50,8 @@ class TaskAdapter (private val taskList: List<Task>): RecyclerView.Adapter<TaskA
         } catch(e: Exception) {
             fillDrawable.setColor(Color.WHITE)
         }
+
+        holder.binding.root.setOnClickListener { onItemClick(item) }  // When I click on each item, I transfer the values of that item.
+
     }
 }

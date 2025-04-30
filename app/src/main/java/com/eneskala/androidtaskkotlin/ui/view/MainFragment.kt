@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eneskala.androidtaskkotlin.R
 import com.eneskala.androidtaskkotlin.data.util.Status
@@ -133,7 +134,10 @@ class MainFragment : Fragment() {
         })
 
         viewModel.tasks.observe(viewLifecycleOwner, Observer { list ->
-            val adapter = TaskAdapter(list)
+            val adapter = TaskAdapter(list) {  // I am sending the values with navigation.
+                val action = MainFragmentDirections.actionMainFragmentToMainDetailsFragment(it)
+                findNavController().navigate(action)
+            }
             binding.mainRecyclerView.adapter = adapter
             binding.mainRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.progressBar.visibility = View.GONE

@@ -9,5 +9,18 @@
         android:id="@+id/mainFragment"
         android:name="com.eneskala.androidtaskkotlin.ui.view.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_mainDetailsFragment"
+            app:destination="@id/mainDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainDetailsFragment"
+        android:name="com.eneskala.androidtaskkotlin.ui.view.MainDetailsFragment"
+        android:label="fragment_main_details"
+        tools:layout="@layout/fragment_main_details" >
+        <argument
+            android:name="task"
+            app:argType="com.eneskala.androidtaskkotlin.data.model.Task" />
+    </fragment>
 </navigation>

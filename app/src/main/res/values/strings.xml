@@ -6,5 +6,11 @@
     <string name="task">Task</string>
     <string name="description">Description</string>
     <string name="title">Title</string>
+    <string name="businessUnit">Business Unit</string>
+    <string name="colorCode">Color Code</string>
+    <string name="workingTime">Working Time</string>
+    <string name="wageType">Wage Type</string>
+    <string name="backText">Back</string>
+
 
 </resources>
