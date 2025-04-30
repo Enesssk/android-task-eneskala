@@ -9,6 +9,7 @@ import com.eneskala.androidtaskkotlin.data.local.database.TaskDatabase
 import com.eneskala.androidtaskkotlin.data.repository.TaskRepository
 import com.eneskala.androidtaskkotlin.data.service.ApiService
 import com.eneskala.androidtaskkotlin.data.util.AuthInterceptor
+import com.eneskala.androidtaskkotlin.data.util.NetworkHelper
 import com.eneskala.androidtaskkotlin.data.util.TokenAuthenticator
 import com.eneskala.androidtaskkotlin.data.util.TokenManager
 import com.eneskala.androidtaskkotlin.data.util.Util.BASE_URL
@@ -77,7 +78,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun injectTaskRepo(apiService: ApiService,dao:TaskDao) = TaskRepository(apiService,dao)
+    fun injectTaskRepo(apiService: ApiService,dao:TaskDao, networkHelper: NetworkHelper) = TaskRepository(apiService,dao,networkHelper)
 
     @Provides
     @Singleton
@@ -86,5 +87,11 @@ object AppModule {
     ): WorkManager {
         return WorkManager.getInstance(appContext)
     }
+
+    @Provides
+    @Singleton
+    fun injectNetworkHelper(
+        @ApplicationContext context: Context
+    ): NetworkHelper = NetworkHelper(context)
 
 }

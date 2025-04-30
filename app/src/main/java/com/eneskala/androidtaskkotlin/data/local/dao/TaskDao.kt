@@ -13,6 +13,9 @@ interface TaskDao {
     @Query("SELECT * FROM tasks")
     fun getAll(): LiveData<List<Task>>
 
+    @Query("SELECT * FROM tasks")
+    suspend fun getAllOnce(): List<Task>    // I get data from here when there is no internet
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(tasks: List<Task>)
 

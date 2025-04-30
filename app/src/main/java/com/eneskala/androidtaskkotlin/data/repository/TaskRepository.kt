@@ -7,6 +7,7 @@ import com.eneskala.androidtaskkotlin.data.model.LoginRequest
 import com.eneskala.androidtaskkotlin.data.model.LoginResponse
 import com.eneskala.androidtaskkotlin.data.model.Task
 import com.eneskala.androidtaskkotlin.data.service.ApiService
+import com.eneskala.androidtaskkotlin.data.util.NetworkHelper
 import com.eneskala.androidtaskkotlin.data.util.Resource
 import com.eneskala.androidtaskkotlin.data.util.TokenManager
 import org.json.JSONException
@@ -16,7 +17,9 @@ import kotlin.math.log
 
 class TaskRepository @Inject constructor(
     private val apiService: ApiService,
-    private val dao: TaskDao) {
+    private val dao: TaskDao,
+    private val networkHelper: NetworkHelper
+) {
 
 
     fun getTasks() = dao.getAll()
@@ -24,6 +27,13 @@ class TaskRepository @Inject constructor(
 
     // I retrieved the data from the API and saved it locally with room.
     suspend fun refreshTasks(): Resource<List<Task>> {
+
+        // 1) control of offline
+        if (!networkHelper.isNetworkAvailable()) {
+            val cached = dao.getAllOnce()
+            return Resource.success(cached)
+        }
+
         return try {
         val response = apiService.getTasks()
 
