@@ -86,14 +86,22 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     implementation("androidx.activity:activity-ktx:1.6.1")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
 
-    implementation ("com.google.code.gson:gson:2.8.9")
+    // SwipeRefreshLayout
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     //curl
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
+    // WorkManager
+    implementation ("androidx.work:work-runtime-ktx:2.8.1")
+
+    //scanner
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
 
 }
 
